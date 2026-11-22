@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Torque 2K27 | Register</title>
+<meta name="description" content="Register for Torque 2K27, the Mechanical Engineering technical fest of UCEK, JNTUK Kakinada. 10-11 January 2027.">
+<meta name="theme-color" content="#07080b">
+<link rel="icon" href="../images/LOGO_ANIMATED_COMPRESSED.gif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="subpage.css">
+<style>
+.rwrap{max-width:1180px}
+.rhero{position:relative;overflow:hidden;margin-top:28px;padding:clamp(22px,4vw,40px);border:1px solid var(--line);background:linear-gradient(135deg,rgba(var(--ar),.3),#10121a 70%);clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between}
+.rhero::before{content:"";position:absolute;inset:-30% -10%;background:repeating-linear-gradient(105deg,transparent 0 46px,rgba(var(--ar),.13) 46px 50px,transparent 50px 130px);animation:sl 4s linear infinite;pointer-events:none}
+.rhero>*{position:relative}
+.stats{display:flex;gap:clamp(16px,4vw,38px);flex-wrap:wrap}
+.stats b{display:block;font:400 clamp(2rem,5vw,3.2rem)/1 var(--display)}
+.stats small{font:700 .62rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.rhero .cd{position:static}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;margin-top:24px;align-items:start}
+.steps{display:flex;gap:6px;margin-bottom:22px}
+.st{flex:1;display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);background:rgba(255,255,255,.03);font:700 .66rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);cursor:default;transition:all .3s;position:relative;overflow:hidden}
+.st i{flex:0 0 26px;height:26px;display:grid;place-items:center;border:1px solid var(--line);font:400 .95rem var(--display);font-style:normal}
+.st.on{color:var(--text);border-color:var(--a);background:rgba(var(--ar),.1)}
+.st.on i,.st.done i{background:var(--a);color:#000;border-color:var(--a)}
+.st.done{color:var(--text);cursor:pointer}
+.st::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--a);transition:width .5s}
+.st.on::after,.st.done::after{width:100%}
+.pane{display:none;animation:pin .5s cubic-bezier(.2,.8,.2,1)}
+.pane.on{display:block}
+@keyframes pin{from{opacity:0;transform:translateX(24px)}}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.f{display:flex;flex-direction:column;gap:6px;min-width:0}
+label,.lab{font:700 .66rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--a)}
+label i{color:var(--mut);font-style:normal}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;padding:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--text);font:400 1rem var(--body);border-radius:0;transition:border-color .25s,box-shadow .25s,background .25s}
+select option{background:#10121a}
+textarea{min-height:92px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--a);box-shadow:0 0 0 3px rgba(var(--ar),.18);background:rgba(255,255,255,.08)}
+.f.bad input,.f.bad select{border-color:#ff4d4d}
+.err{display:none;color:#ff7b7b;font:400 .76rem var(--mono)}
+.f.bad .err{display:block}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+.tab{padding:8px 14px;border:1px solid var(--line);background:transparent;color:var(--mut);font:700 .66rem var(--mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.tab:hover{color:var(--text);border-color:var(--a)}
+.tab.on{background:var(--a);color:#000;border-color:var(--a)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.ec{position:relative;display:block;height:118px;cursor:pointer}
+.ec.hide{display:none}
+.ec input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;z-index:2}
+.ec .in{position:absolute;inset:0;padding:14px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .25s,border-color .25s,background .25s,box-shadow .25s}
+.ec .in i{position:absolute;right:8px;top:-8px;font:400 4.2rem/1 var(--display);font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.22);transition:all .3s}
+.ec .in small{font:700 .58rem var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--a)}
+.ec .in b{font:400 1.12rem/1.05 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.ec .in::after{content:"";position:absolute;left:12px;top:12px;width:20px;height:20px;border:1.5px solid var(--mut);transition:all .2s}
+.ec:hover .in{transform:translateY(-4px);border-color:rgba(var(--ar),.6)}
+.ec input:checked+.in{border-color:var(--a);background:linear-gradient(160deg,rgba(var(--ar),.28),rgba(var(--ar),.06));box-shadow:0 0 40px -14px rgba(var(--ar),.9)}
+.ec input:checked+.in i{-webkit-text-stroke-color:var(--a);transform:scale(1.1)}
+.ec input:checked+.in::after{background:var(--a) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M4 10l4 4 8-8' fill='none' stroke='black' stroke-width='3'/></svg>") center/contain no-repeat;border-color:var(--a)}
+.ec input:focus-visible+.in{outline:2px solid var(--a);outline-offset:2px}
+.acts{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:22px;flex-wrap:wrap}
+.acts .btn{cursor:pointer;border:0;padding:15px 30px}
+.acts .btn[disabled]{opacity:.6;cursor:wait}
+.count{font:700 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.count b{color:var(--a);font-size:1.1rem}
+.hp{position:absolute;left:-9999px;opacity:0;height:0}
+.msg{display:none;margin-top:16px;padding:14px 16px;border-left:3px solid var(--a);background:rgba(var(--ar),.08)}
+.msg.show{display:block}.msg.ko{border-color:#ff4d4d;background:rgba(255,77,77,.08)}
+.toggle{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--line);cursor:pointer;margin-top:16px}
+.toggle input{width:20px;height:20px;accent-color:var(--a)}
+.rev{margin-top:18px;border:1px dashed var(--line);padding:14px;font-size:.95rem;color:#cdd2de}
+.rev b{color:var(--a);font:700 .62rem var(--mono);letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:8px}
+.rev b:first-child{margin-top:0}
+/* pass */
+.pass{position:sticky;top:84px;padding:0;overflow:visible}
+.pass::before{display:none}
+.ph{padding:20px 22px;background:linear-gradient(135deg,var(--a),#ff9a3c);color:#000;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.ph b{font:400 1.7rem/1 var(--display);letter-spacing:.06em;display:block}
+.ph small{font:700 .62rem var(--mono);letter-spacing:.2em;text-transform:uppercase}
+.pb{padding:20px 22px;position:relative}
+.pb::before,.pb::after{content:"";position:absolute;top:-11px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
+.pb::before{left:-12px}.pb::after{right:-12px}
+.pn{font:400 1.6rem/1.05 var(--display);text-transform:uppercase;min-height:1.7rem;word-break:break-word}
+.pn.ph0{color:rgba(255,255,255,.25)}
+.pc{font:400 .9rem var(--body);color:var(--mut);margin-top:4px;min-height:1.3rem}
+.pl{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;max-height:210px;overflow:auto}
+.pl li{display:flex;gap:8px;align-items:center;font-size:.9rem;animation:pin .35s}
+.pl li::before{content:"";width:8px;height:8px;background:var(--a);flex:0 0 8px}
+.pl .none{color:var(--mut);font-style:italic}.pl .none::before{display:none}
+.pd{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font:700 .64rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.pd b{color:var(--text)}
+.bar0{height:44px;margin:14px 22px 22px;background:repeating-linear-gradient(90deg,#f3efe8 0 2px,transparent 2px 5px,#f3efe8 5px 6px,transparent 6px 10px,#f3efe8 10px 13px,transparent 13px 15px);opacity:.75}
+.ok{text-align:center;padding:36px 10px}
+.ok h2{font-size:clamp(2rem,6vw,3.4rem)}
+.ok p{max-width:520px;margin:0 auto 12px}
+.rid{display:inline-block;margin:10px 0 20px;padding:12px 24px;border:1px dashed var(--a);font:700 1.2rem var(--mono);letter-spacing:.24em;color:var(--a)}
+@media (max-width:900px){.layout{grid-template-columns:1fr}.pass{position:static;order:-1}.pl{max-height:120px}}
+@media (max-width:760px){.row{grid-template-columns:1fr}.st span{display:none}.st{justify-content:center}}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding:14px 16px;border:1px solid var(--a);background:rgba(var(--ar),.1)}
+.total span{font:700 .68rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.total b{font:400 2rem/1 var(--display);color:var(--a)}
+.sec{margin-top:10px;font:400 .78rem var(--mono);color:var(--mut)}
+.upi h2{margin-bottom:6px}
+.qrrow{display:flex;gap:22px;flex-wrap:wrap;align-items:center;margin:16px 0}
+#qr{background:#fff;padding:10px;min-width:100px;min-height:100px}
+.uid{font:700 1.15rem var(--mono);word-break:break-all;margin:4px 0 12px}
+.upi .btn{cursor:pointer;border:0;margin:0 8px 8px 0}
+.mob{display:none!important}
+@media (pointer:coarse){.mob{display:inline-flex!important}}
+.upi ol{margin:10px 0 18px 18px;color:#cdd2de;font-size:.95rem}
+.upi ol li{margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="pre" aria-hidden="true"><b>TORQUE<i> 2K27</i></b></div>
+<div class="prog" aria-hidden="true"></div>
+<div class="cur" aria-hidden="true"></div><div class="cring" aria-hidden="true"></div>
+<canvas id="em" aria-hidden="true"></canvas>
+<header class="nav"><a class="brand" href="../index.html">TORQUE<i> 2K27</i></a><div class="navr"><a class="btn" href="../index.html">Home</a></div></header>
+<main class="wrap rwrap">
+<div class="kick">Registration · 10-11 January 2027</div>
+<h1 data-glitch="Join the Grid">Join the <em>Grid</em></h1>
+<p class="tag">Pick your events. Claim your pass.</p>
+
+<div class="rhero">
+  <div class="stats"><div><b>12</b><small>Events</small></div><div><b>3</b><small>Workshops</small></div><div><b>2</b><small>Days</small></div></div>
+  <div class="cd" aria-label="Countdown to Torque 2K27"></div>
+</div>
+
+<div class="layout">
+<section class="glass" id="card">
+<div class="steps" id="steps">
+  <div class="st on" data-s="0"><i>1</i><span>Details</span></div>
+  <div class="st" data-s="1"><i>2</i><span>Choose</span></div>
+  <div class="st" data-s="2"><i>3</i><span>Confirm</span></div>
+</div>
+<form id="reg" novalidate autocomplete="on">
+  <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+  <div class="pane on" data-p="0">
+    <h2>Your <em>Details</em></h2>
+    <div class="row">
+      <div class="f"><label for="name">Full name</label><input id="name" name="name" type="text" required autocomplete="name"><span class="err">Enter your full name.</span></div>
+      <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"><span class="err">Enter a valid email.</span></div>
+    </div>
+    <div class="row">
+      <div class="f"><label for="phone">Mobile (WhatsApp)</label><input id="phone" name="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit number" required autocomplete="tel-national"><span class="err">Enter a 10-digit mobile number.</span></div>
+      <div class="f"><label for="college">College</label><input id="college" name="college" type="text" required autocomplete="organization"><span class="err">Enter your college name.</span></div>
+    </div>
+    <div class="row">
+      <div class="f"><label for="branch">Branch</label><select id="branch" name="branch" required><option value="">Select</option><option>Mechanical</option><option>Civil</option><option>Electrical (EEE)</option><option>Electronics (ECE)</option><option>Computer Science</option><option>Chemical</option><option>Other</option></select><span class="err">Select your branch.</span></div>
+      <div class="f"><label for="year">Year</label><select id="year" name="year" required><option value="">Select</option><option>1st year</option><option>2nd year</option><option>3rd year</option><option>4th year</option><option>Other</option></select><span class="err">Select your year.</span></div>
+    </div>
+    <div class="row">
+      <div class="f"><label for="roll">Roll number <i>(optional)</i></label><input id="roll" name="roll" type="text"></div>
+      <div class="f"><label for="city">City / Town <i>(optional)</i></label><input id="city" name="city" type="text" autocomplete="address-level2"></div>
+    </div>
+    <div class="acts"><span></span><button class="btn pri" type="button" data-next>Next: choose events</button></div>
+  </div>
+
+  <div class="pane" data-p="1">
+    <h2>Pick Your <em>Events</em></h2>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="cards" id="cards"></div>
+    <div class="f bad" id="evf" style="display:none"><span class="err" style="display:block;margin-top:12px">Pick at least one event or workshop.</span></div>
+    <div class="acts"><button class="btn" type="button" data-back>Back</button><span class="count"><b id="cnt">0</b> selected</span><button class="btn pri" type="button" data-next>Next: confirm</button></div>
+  </div>
+
+  <div class="pane" data-p="2">
+    <h2>Almost <em>There</em></h2>
+    <div class="f" id="teamf" hidden style="margin-bottom:16px"><label for="team">Team name &amp; members <i>(team events)</i></label><textarea id="team" name="team" placeholder="Team name, then member names (one per line)"></textarea></div>
+    <label class="toggle"><input type="checkbox" name="accommodation" value="Yes"><span>I need accommodation during the fest</span></label>
+    <div class="f" style="margin-top:16px"><label for="notes">Anything else? <i>(optional)</i></label><textarea id="notes" name="notes"></textarea></div>
+    <div class="total"><span>Total to pay</span><b id="tot">₹0</b></div>
+    <p class="sec">Secure payment by Razorpay (UPI, cards, netbanking). Card and UPI details never touch this website. Your registration is confirmed only after the payment is verified by our server.</p>
+    <div class="rev" id="rev"></div>
+    <div class="msg" id="msg" role="status" aria-live="polite"></div>
+    <div class="acts"><button class="btn" type="button" data-back>Back</button><button class="btn pri" id="go" type="submit">Continue</button></div>
+  </div>
+</form>
+</section>
+
+<aside class="glass pass" aria-label="Your pass preview">
+  <div class="ph"><b>TORQUE 2K27</b><small>Event pass · UCEK JNTUK</small></div>
+  <div class="pb">
+    <div class="pn ph0" id="pn">Your name</div>
+    <div class="pc" id="pc">Your college</div>
+    <ul class="pl" id="pl"><li class="none">No events picked yet</li></ul>
+    <div class="pd"><span>Dates</span><b>10-11 Jan 2027</b></div>
+    <div class="pd" style="border:0;margin-top:8px;padding-top:0"><span>Total</span><b id="ptot">₹0</b></div>
+  </div>
+  <div class="bar0" aria-hidden="true"></div>
+</aside>
+</div>
+<div class="chk" aria-hidden="true"></div>
+</main>
+<footer><p>&copy; 2027 Torque JNTUK. Made with love for TORQUE 2K27.</p></footer>
+
+<script src="phones.js"></script><script src="subpage.js"></script>
+<script>
+/* ================= CONFIG =================
+   ENDPOINT: your Google Apps Script web-app URL (see SETUP.txt).
+   While empty the page runs in DEMO MODE: nothing is sent and no money moves.
+   PRICE is for DISPLAY only. The server calculates the real amount, so changing it here cannot lower what is charged. */
+var MODE = "razorpay";            // "razorpay" or "upi"
+var ENDPOINT = "";
+var PRICE = { event: 100, workshop: 200 };   // keep equal to Code.gs
+
+var ITEMS=[["Mechanical Quiz","Mind","01",1],["Design Freak","Design","02"],["Project Expo","Technical","03",1],["Bridge Building","Technical","04",1],["Lathe Master","Technical","05"],["Casting Crowns","Technical","06",1],["Slide Plane","Technical","07",1],["Engine Montage","Technical","08",1],["Chess Monarch","Mind","09"],["Robo Race (MazeX)","Technical","10",1],["Drone Drive","Technical","11"],["Rhythmic Fusion","Cultural","12",1],
+ ["Electric Vehicles","Workshop","W1"],["Virtual Reality","Workshop","W2"],["Robotics","Workshop","W3"]];
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var esc=function(t){return String(t).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})};
+
+/* cards + filter tabs */
+$("#cards").innerHTML=ITEMS.map(function(e){var w=e[1]==="Workshop";return '<label class="ec" data-k="'+e[1]+'"><input type="checkbox" name="'+(w?"workshops":"events")+'" value="'+(w?"Workshop: ":"")+esc(e[0])+'" data-team="'+(e[3]?1:0)+'"><div class="in"><i>'+e[2]+'</i><small>'+e[1]+'</small><b>'+esc(e[0])+'</b></div></label>'}).join("");
+var kinds=["All","Technical","Mind","Design","Cultural","Workshop"];
+$("#tabs").innerHTML=kinds.map(function(k,i){return '<button type="button" class="tab'+(i?"":" on")+'" data-k="'+k+'">'+k+'</button>'}).join("");
+$("#tabs").addEventListener("click",function(e){var t=e.target.closest(".tab");if(!t)return;
+  $$(".tab").forEach(function(x){x.classList.toggle("on",x===t)});
+  $$(".ec").forEach(function(c){c.classList.toggle("hide",t.dataset.k!=="All"&&c.dataset.k!==t.dataset.k)})});
+
+/* price + live pass */
+function total(){var c=$$(".ec input:checked"),w=c.filter(function(i){return i.value.indexOf("Workshop: ")===0}).length;return (c.length-w)*PRICE.event+w*PRICE.workshop}
+function label(){return MODE==="razorpay"?"Pay ₹"+total()+" securely":"Continue to pay ₹"+total()}
+var working=false;
+function busy(on,txt){working=on;var b=$("#go");if(!b)return;b.disabled=on;b.textContent=on?(txt||"Please wait..."):label()}
+function pass(){
+  if(!$("#name"))return;                                  // payment screen replaced the form
+  var n=$("#name").value.trim(),c=$("#college").value.trim();
+  $("#pn").textContent=n||"Your name";$("#pn").classList.toggle("ph0",!n);$("#pc").textContent=c||"Your college";
+  var sel=$$(".ec input:checked").map(function(i){return i.value.replace("Workshop: ","")+(i.value.indexOf("Workshop")===0?" (workshop)":"")});
+  $("#pl").innerHTML=sel.length?sel.map(function(s){return "<li>"+esc(s)+"</li>"}).join(""):'<li class="none">No events picked yet</li>';
+  $("#cnt").textContent=sel.length;$("#teamf").hidden=!$(".ec input[data-team='1']:checked");
+  var t="₹"+total();if($("#tot"))$("#tot").textContent=t;if($("#ptot"))$("#ptot").textContent=t;if(!working)busy(false);
+}
+document.addEventListener("input",pass);document.addEventListener("change",pass);
+$("#phone").addEventListener("input",function(){this.value=this.value.replace(/\D/g,"").slice(0,10)});
+
+/* wizard */
+var step=0;
+function go(n){step=n;$$(".pane").forEach(function(p,i){p.classList.toggle("on",i===n)});
+  $$(".st").forEach(function(s,i){s.classList.toggle("on",i===n);s.classList.toggle("done",i<n)});
+  if(n===2)review();$("#steps").scrollIntoView({behavior:"smooth",block:"start"})}
+function bad(id,on){$(id).closest(".f").classList.toggle("bad",on);return on}
+function v1(){var v=function(i){return $(i).value.trim()},e=0;
+  e+=bad("#name",v("#name").length<3);e+=bad("#email",!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("#email")));
+  e+=bad("#phone",!/^[6-9]\d{9}$/.test(v("#phone")));e+=bad("#college",v("#college").length<3);
+  e+=bad("#branch",!$("#branch").value);e+=bad("#year",!$("#year").value);return e===0}
+function v2(){var ok=$$(".ec input:checked").length>0;$("#evf").style.display=ok?"none":"block";return ok}
+function review(){var f=new FormData($("#reg"));
+  $("#rev").innerHTML="<b>Name</b>"+esc(f.get("name"))+" · "+esc(f.get("college"))+"<b>Contact</b>"+esc(f.get("email"))+" · "+esc(f.get("phone"))+"<b>Selected</b>"+esc(f.getAll("events").concat(f.getAll("workshops")).join(", "))}
+document.addEventListener("click",function(e){
+  if(!e.target.closest)return;
+  if(e.target.closest("[data-next]")){if(step===0&&!v1()){var b=document.querySelector(".f.bad");if(b)b.scrollIntoView({behavior:"smooth",block:"center"});return}
+    if(step===1&&!v2())return;go(step+1)}
+  else if(e.target.closest("[data-back]"))go(step-1);
+  else{var s=e.target.closest(".st.done");if(s&&!working)go(+s.dataset.s)}});
+
+/* ---------- talking to the server ---------- */
+function show(t,ko,id){var m=$(id||"#msg");if(!m)return;m.textContent=t;m.className="msg show"+(ko?" ko":"")}
+function collect(){var f=new FormData($("#reg"));var g=function(k){return String(f.get(k)||"").trim()};
+  return{name:g("name"),email:g("email").toLowerCase(),phone:g("phone"),college:g("college"),roll:g("roll"),branch:g("branch"),year:g("year"),city:g("city"),
+    events:f.getAll("events"),workshops:f.getAll("workshops").map(function(w){return w.replace("Workshop: ","")}),team:g("team"),accommodation:f.get("accommodation")?"Yes":"No",notes:g("notes")}}
+function api(body){
+  if(!ENDPOINT)return mock(body);
+  // text/plain keeps this a "simple" request, so Apps Script needs no CORS preflight
+  return fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)}).then(function(r){return r.json()});
+}
+function mock(b){return new Promise(function(res){setTimeout(function(){
+  if(b.action==="init"){var d=b.data;res({ok:true,regId:"T27-DEMO1",amount:d.events.length*PRICE.event+d.workshops.length*PRICE.workshop,orderId:"order_demo",keyId:"rzp_test_demo",upiId:"demo@upi",upiName:"Torque 2K27"})}
+  else res({ok:true,regId:b.regId})},500)})}
+function loadScript(src){return new Promise(function(ok,no){var s=document.createElement("script");s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s)})}
+function fail(e){busy(false);var m=e&&e.message;show(m&&m!=="fail"&&!/fetch|network|JSON/i.test(m)?m:"Could not reach the server. Check your internet and try again.",true)}
+
+$("#reg").addEventListener("submit",function(ev){
+  ev.preventDefault();
+  if(this.company&&this.company.value)return;          // honeypot
+  if(working)return;
+  if(!v1()){go(0);return}if(!v2()){go(1);return}
+  var data=collect();busy(true,"Securing your order...");$("#msg").className="msg";
+  api({action:"init",mode:MODE,data:data}).then(function(res){
+    if(!res||!res.ok)throw new Error(res&&res.error||"fail");
+    if($("#ptot"))$("#ptot").textContent="₹"+res.amount;      // server price wins
+    if(MODE==="razorpay")payRzp(res,data);else showUpi(res,data);
+  }).catch(fail);
+});
+
+/* ---------- RAZORPAY ---------- */
+function payRzp(res,data){
+  if(!ENDPOINT){return verifyRzp(res,{razorpay_order_id:res.orderId,razorpay_payment_id:"pay_demo",razorpay_signature:"demo"},data)}   // demo: no popup
+  loadScript("https://checkout.razorpay.com/v1/checkout.js").then(function(){
+    var r=new Razorpay({key:res.keyId,order_id:res.orderId,amount:res.amount*100,currency:"INR",name:"Torque 2K27",description:"Registration "+res.regId,
+      prefill:{name:data.name,email:data.email,contact:data.phone},notes:{regId:res.regId},theme:{color:"#ff6a1a"},
+      handler:function(p){verifyRzp(res,p,data)},
+      modal:{ondismiss:function(){if(!done){busy(false);show("Payment window closed. If you completed the payment do not pay again; otherwise press Pay to try again.",true)}}}});
+    r.on("payment.failed",function(f){busy(false);show("Payment failed: "+((f.error&&f.error.description)||"please try again")+".",true)});
+    r.open();
+  }).catch(function(){busy(false);show("Could not load the payment window. Check your internet and try again.",true)});
+}
+var done=false;
+function verifyRzp(res,p,data){
+  busy(true,"Confirming payment...");show("Confirming your payment, please wait...");
+  return api({action:"verify",regId:res.regId,email:data.email,razorpay_order_id:p.razorpay_order_id,razorpay_payment_id:p.razorpay_payment_id,razorpay_signature:p.razorpay_signature})
+    .then(function(v){if(v&&v.ok)finish(data,res,"paid");else throw new Error(v&&v.error||"fail")})
+    .catch(function(e){busy(false);show("We could not confirm your payment yet. DO NOT pay again. Note your ID "+res.regId+" and payment ID "+p.razorpay_payment_id+" and contact the registration team. It is usually confirmed automatically within a few minutes."+(e&&e.message&&e.message!=="fail"?" ("+e.message+")":""),true)});
+}
+
+/* ---------- UPI ---------- */
+function showUpi(res,data){
+  var link="upi://pay?pa="+encodeURIComponent(res.upiId)+"&pn="+encodeURIComponent(res.upiName)+"&am="+Number(res.amount).toFixed(2)+"&cu=INR&tn="+encodeURIComponent("Torque "+res.regId);
+  $("#steps").style.display="none";
+  $("#reg").innerHTML='<div class="upi"><div class="kick">Step 3 of 3</div><h2>Pay <em>₹'+esc(res.amount)+'</em></h2>'+
+   '<ol><li>Scan the QR or use the UPI ID below. Pay <b>exactly ₹'+esc(res.amount)+'</b>.</li><li>Copy the 12-digit <b>UTR / reference number</b> from your UPI app.</li><li>Enter it below and submit.</li></ol>'+
+   '<div class="qrrow"><div id="qr"></div><div><div class="lab">UPI ID</div><div class="uid">'+esc(res.upiId)+'</div><button class="btn" id="cu" type="button">Copy UPI ID</button><a class="btn pri mob" href="'+esc(link)+'">Open UPI app</a>'+
+   '<div class="lab" style="margin-top:6px">Your registration ID</div><div class="uid">'+esc(res.regId)+'</div></div></div>'+
+   '<div class="f"><label for="utr">12-digit UTR number</label><input id="utr" type="text" inputmode="numeric" maxlength="12" autocomplete="off"><span class="err">Enter the 12-digit UTR from your UPI app.</span></div>'+
+   '<div class="msg" id="umsg" role="status" aria-live="polite"></div>'+
+   '<div class="acts"><span class="count">Do not submit a wrong UTR, it delays verification</span><button class="btn pri" id="sbm" type="button">I have paid, submit</button></div></div>';
+  $("#utr").addEventListener("input",function(){this.value=this.value.replace(/\D/g,"").slice(0,12)});
+  $("#cu").onclick=function(){if(navigator.clipboard)navigator.clipboard.writeText(res.upiId).then(function(){$("#cu").textContent="Copied"},function(){})};
+  loadScript("https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js").then(function(){new QRCode($("#qr"),{text:link,width:190,height:190,colorDark:"#000000",colorLight:"#ffffff"})}).catch(function(){$("#qr").style.display="none"});
+  $("#sbm").onclick=function(){
+    var u=$("#utr").value;if(!/^\d{12}$/.test(u)){$("#utr").closest(".f").classList.add("bad");return}
+    $("#utr").closest(".f").classList.remove("bad");var b=$("#sbm");b.disabled=true;b.textContent="Submitting...";
+    api({action:"utr",regId:res.regId,email:data.email,utr:u}).then(function(v){if(v&&v.ok)finish(data,res,"upi");else throw new Error(v&&v.error||"fail")})
+     .catch(function(e){b.disabled=false;b.textContent="I have paid, submit";var m=e&&e.message;show(m&&m!=="fail"&&!/fetch|network|JSON/i.test(m)?m:"Could not reach the server. Try again.",true,"#umsg")});
+  };
+}
+
+/* ---------- finish ---------- */
+function items(d){return d.events.concat(d.workshops.map(function(w){return w+" (workshop)"}))}
+function passPng(d,id){var c=document.createElement("canvas");c.width=900;c.height=420;var x=c.getContext("2d");
+  x.fillStyle="#07080b";x.fillRect(0,0,900,420);var g=x.createLinearGradient(0,0,900,0);g.addColorStop(0,"#ff6a1a");g.addColorStop(1,"#ff9a3c");x.fillStyle=g;x.fillRect(0,0,900,92);
+  x.fillStyle="#000";x.font="52px Impact,Anton,sans-serif";x.fillText("TORQUE 2K27",34,64);x.font="bold 16px monospace";x.fillText("EVENT PASS · UCEK JNTUK · 10-11 JAN 2027",470,56);
+  x.fillStyle="#fff";x.font="46px Impact,Anton,sans-serif";x.fillText(d.name.toUpperCase().slice(0,26),34,166);x.fillStyle="#9aa0b0";x.font="22px sans-serif";x.fillText(d.college.slice(0,50),34,200);
+  x.fillStyle="#ff6a1a";x.font="bold 16px monospace";x.fillText("REGISTERED FOR",34,250);x.fillStyle="#f3efe8";x.font="20px sans-serif";
+  var w=[],cur="";items(d).join(" · ").split(" ").forEach(function(t){if((cur+t).length>58){w.push(cur);cur=""}cur+=t+" "});w.push(cur);w.slice(0,4).forEach(function(t,i){x.fillText(t,34,282+i*28)});
+  x.fillStyle="#ff6a1a";x.font="bold 34px monospace";x.fillText(id,590,380);
+  for(var i=0;i<30;i++){x.fillStyle="#f3efe8";x.fillRect(34+i*9,368,i%3?3:6,36)}
+  var a=document.createElement("a");a.href=c.toDataURL("image/png");a.download="torque-pass-"+id+".png";a.click()}
+function finish(data,res,kind){
+  done=true;$("#steps").style.display="none";
+  var paid=kind==="paid";
+  $("#card").innerHTML='<div class="ok"><div class="kick">'+(paid?"Payment verified":"Payment received")+(ENDPOINT?"":" · demo mode")+'</div><h2>'+(paid?'You are <em>on the grid</em>':'Almost <em>on the grid</em>')+'</h2><p>Thanks, '+esc(data.name.split(" ")[0])+'! Your registration ID:</p><div class="rid">'+esc(res.regId)+'</div>'+
+    (paid?'<p>A confirmation has been emailed to '+esc(data.email)+'. Show this ID at the registration desk on 10-11 January 2027.</p><p><button class="btn pri" id="png" type="button" style="border:0;cursor:pointer">Save my pass</button> <a class="btn" href="../index.html">Back to home</a></p>'
+          :'<p>Our team will match your payment (usually within 24 hours). You will get an email at '+esc(data.email)+' when it is verified. Keep this ID.</p><p><a class="btn pri" href="../index.html">Back to home</a></p>')+
+    (ENDPOINT?'':'<p><strong>Demo mode: nothing was sent and no money moved. Set ENDPOINT to go live.</strong></p>')+'</div>';
+  if(paid)$("#png").onclick=function(){passPng(data,res.regId)};
+  $("#pn").textContent=data.name;$(".pass").scrollIntoView({behavior:"smooth",block:"center"});
+  for(var i=0;i<6;i++)setTimeout(function(){document.dispatchEvent(new MouseEvent("click",{clientX:innerWidth*(.2+Math.random()*.6),clientY:innerHeight*(.25+Math.random()*.4),bubbles:true}))},i*160);
+}
+busy(false);pass();
+</script>
+</body>
+</html>
