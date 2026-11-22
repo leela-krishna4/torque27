@@ -1,0 +1,50 @@
+TORQUE 2K27 - REGISTRATION + PAYMENTS SETUP
+============================================
+You have TWO registration pages. Use ONE of them (or both, e.g. test on one):
+  register-razorpay.html  -> pays through Razorpay (UPI / cards / netbanking), verified automatically
+  register-upi.html       -> pays by UPI QR + UTR number, your treasurer verifies in the Sheet
+Both talk to the SAME backend: Code.gs.
+
+STEP 1 - Google Sheet + script
+ 1. Create a new Google Sheet (name it "Torque 2K27 Registrations").
+ 2. Extensions > Apps Script. Delete the sample code, paste ALL of Code.gs, Save.
+ 3. At the top of Code.gs set: EVENT_PRICE, WORKSHOP_PRICE, UPI_ID (UPI mode), ADMIN_EMAIL (optional).
+ 4. Select the function "setup" in the toolbar and press Run. Approve the permissions
+    (Sheets, Mail, external requests). This builds the columns, the Status dropdown and 2 triggers.
+
+STEP 2 - Razorpay keys (skip if you only use UPI)
+ 1. Razorpay Dashboard > Account & Settings > API Keys > Generate key. Start with TEST mode keys.
+ 2. Apps Script > Project Settings (gear) > Script properties > Add:
+        RZP_KEY_ID      = rzp_test_xxxxxxxx
+        RZP_KEY_SECRET  = (the secret)
+    The secret lives ONLY here. Never put it in any HTML file.
+ 3. Test with Razorpay test cards/UPI, then swap in the LIVE keys when ready.
+
+STEP 3 - Deploy
+ 1. Deploy > New deployment > type "Web app". Execute as: Me. Who has access: Anyone.
+ 2. Copy the Web app URL.
+ 3. Open subpages/register-upi.html (default; also register-razorpay.html if you use it) and set:   var ENDPOINT = "PASTE_URL_HERE";
+    Also set PRICE near it to the SAME numbers as Code.gs (display only; the server decides the real price).
+ 4. Every time you change Code.gs: Deploy > Manage deployments > Edit > New version > Deploy.
+
+STEP 4 - Go live
+ - UPI is the DEFAULT: index.html and every subpage open subpages/register-upi.html. To switch to Razorpay, change regUrl in index.html
+   (search for regUrl) to "subpages/register-razorpay.html" and the Register links on the subpages (they all point to register-upi.html).
+ - Upload index.html (site root) and the subpages/ folder. Your existing images/ folder stays beside index.html.
+ - Do NOT upload the _backend folder; it is only for you (Code.gs goes into Google Apps Script).
+ - In the Sheet, the "Status" column shows: Pending -> Paid (Razorpay) or UTR submitted -> Verified (UPI).
+
+UPI MODE: how the treasurer verifies
+ - Rows with status "UTR submitted": compare amount + UTR with your bank / UPI app statement.
+ - Match -> change Status to Verified. The student is emailed automatically.
+ - No match -> change Status to Rejected.
+
+SECURITY NOTES
+ - Prices, IDs and payment status are decided by the server. Editing the page cannot change the amount charged.
+ - Razorpay payments are checked twice: signature (HMAC) and a direct lookup of the payment at Razorpay.
+   One payment ID can never unlock two registrations. A 10-minute safety net (reconcile) confirms payments
+   whose browser closed before returning.
+ - Duplicate emails/phones, duplicate UTRs, bad input and rapid-fire attempts are rejected by the server.
+ - Turn on 2-step login for Google, Razorpay and GitHub, and lock the Razorpay payout bank account.
+ - Free Gmail sends about 100 emails/day via the script. For a big fest use a Google Workspace account.
+ - If someone's registration email fails to arrive, the Sheet row is still the source of truth.
