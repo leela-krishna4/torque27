@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Torque 2K27 | UCEK JNTUK Mechanical Technical Fest</title>
-<meta name="description" content="Torque 2K27, the flagship technical fest of the Department of Mechanical Engineering, University College of Engineering Kakinada, JNTUK.">
-<meta name="keywords" content="Torque, Torque 2K27, techsymposium, UCEK, JNTUK, Mechanical Engineering">
+<title>Torque 26-27 | UCEK JNTUK Mechanical Technical Fest</title>
+<meta name="description" content="Torque 26-27, the flagship technical fest of the Department of Mechanical Engineering, University College of Engineering Kakinada, JNTUK.">
+<meta name="keywords" content="Torque, Torque 26-27, techsymposium, UCEK, JNTUK, Mechanical Engineering">
 <meta name="author" content="Leela Krishna, Ani Babu, Torque '27">
 <meta name="theme-color" content="#07080b">
-<meta property="og:title" content="Torque 2K27">
+<meta property="og:title" content="Torque 26-27">
 <meta property="og:description" content="Workshops, competitions and innovation. UCEK JNTUK Mechanical Engineering.">
 <meta property="og:type" content="website">
 <link rel="icon" href="images/LOGO_ANIMATED_COMPRESSED.gif">
@@ -73,6 +73,17 @@ body.nosnd #snd,body.nosnd #gsnd{display:none}
 .gdial text{font:700 11px var(--mono);fill:var(--mut);text-anchor:middle}
 .ign{position:absolute;left:50%;top:50%;width:44%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(var(--ar),.35),rgba(var(--ar),.06));border:1px solid rgba(var(--ar),.6);font:400 clamp(1rem,3.4vw,1.4rem)/1.1 var(--display);letter-spacing:.06em;touch-action:none;-webkit-tap-highlight-color:transparent;user-select:none;transition:transform .2s,opacity .4s,box-shadow .3s}
 .ign:disabled{opacity:.6;cursor:wait}
+@media (max-width:700px){.gt{padding-top:46px}}
+.ign.rdy::before,.ign.rdy::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(var(--ar),.85);animation:ignr 1.7s ease-out infinite;pointer-events:none}
+.ign.rdy::after{animation-delay:.85s}
+@keyframes ignr{from{transform:scale(1);opacity:.95}to{transform:scale(1.75);opacity:0}}
+.ign.rdy{background:radial-gradient(circle,rgba(var(--ar),.7),rgba(var(--ar),.18));color:#fff;text-shadow:0 0 14px rgba(255,255,255,.6)}
+.ign.nudge{animation:ignn .55s}
+@keyframes ignn{20%{transform:translate(-50%,-50%) scale(1.1) rotate(-4deg)}45%{transform:translate(-50%,-50%) scale(1.1) rotate(4deg)}70%{transform:translate(-50%,-50%) scale(1.06) rotate(-2deg)}}
+.gcta{display:none;margin:16px auto 0;padding:11px 20px;width:max-content;max-width:92vw;border:1px solid var(--a);background:rgba(var(--ar),.16);font:700 clamp(.7rem,2.6vw,.86rem) var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#fff;animation:ctab 1.1s ease-in-out infinite}
+.gcta.on{display:block}
+.gcta b{color:var(--a)}
+@keyframes ctab{50%{transform:translateY(-5px);box-shadow:0 0 34px rgba(var(--ar),.65)}}
 .ign.rdy{animation:ignp 1.4s ease-in-out infinite}
 @keyframes ignp{50%{box-shadow:0 0 50px rgba(var(--ar),.7)}}
 .ign.hold{transform:translate(-50%,-50%) scale(.94);box-shadow:0 0 70px rgba(var(--ar),.7);animation:none}
@@ -826,14 +837,15 @@ body.no-tilt [data-tilt]{transform:none!important}
   <span class="gc br" aria-hidden="true">MECHANICAL ENGG.</span>
   <div class="gt">
     <p class="gk">UCEK · JNTUK · Mechanical Engineering</p>
-    <h1>Torque 2K27</h1>
+    <h1>Torque 26-27</h1>
     <div class="gdial">
       <svg id="gsvg" viewBox="0 0 300 300" aria-hidden="true"></svg>
-      <button class="ign" id="ign" disabled aria-label="Press and hold to ignite the engine">Loading<br>0%</button>
+      <button class="ign" id="ign" disabled aria-label="Tap or hold to ignite the engine">Loading<br>0%</button>
     </div>
     <p id="grpm">0000 RPM</p>
     <p class="gk" id="gst">Booting systems</p>
     <div class="gbar"><i id="gbf"></i><svg class="gcar" id="gcar" viewBox="0 0 46 18" aria-hidden="true"><path d="M1 11h9l3-5h12l4 3h10l3-2h3v6H1z" fill="currentColor"/><circle cx="12" cy="14" r="3.2" fill="#fff"/><circle cx="35" cy="14" r="3.2" fill="#fff"/></svg></div>
+    <div class="gcta" id="gcta" role="status"><b>&#9654;</b> Tap or hold the glowing circle to start</div>
     <ul class="gchk" id="gchk"><li>Fonts <b>...</b></li><li>3D engine <b>...</b></li><li>Track data <b>...</b></li><li>Telemetry <b>...</b></li><li>Ignition <b>...</b></li></ul>
     <div class="glt" id="glt" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="gopts"><button id="gsnd">Sound: on</button><button id="gskip">Skip intro</button></div>
@@ -847,7 +859,7 @@ body.no-tilt [data-tilt]{transform:none!important}
 <div class="cur"></div><div class="cring"><span></span></div>
 
 <header class="nav" id="nav">
-  <a href="#home" class="brand" aria-label="Torque 2K27 home"><img src="images/torque-logo.png" alt="" onerror="this.style.display='none'">TORQUE<i>2K27</i></a>
+  <a href="#home" class="brand" aria-label="Torque 26-27 home"><img src="images/torque-logo.png" alt="" onerror="this.style.display='none'">TORQUE<i>26-27</i></a>
   <nav class="links" id="links" aria-label="Sections">
     <a href="#about">About</a>
     <a href="#workshops">Workshops</a>
@@ -861,7 +873,7 @@ body.no-tilt [data-tilt]{transform:none!important}
     <a href="#register" class="go">Register</a>
   </nav>
   <div class="nav-r">
-    <a class="cdp" id="cdp" href="#register" aria-label="Time left until Torque 2K27"><i></i><span id="cdpt">--</span></a>
+    <a class="cdp" id="cdp" href="#register" aria-label="Time left until Torque 26-27"><i></i><span id="cdpt">--</span></a>
     <div class="sw" id="sw" aria-label="Accent colour"></div>
     <button class="ib" id="snd" aria-pressed="false" aria-label="Sound">♪ <span class="lbl">Sound</span></button>
     <button class="ib" id="srch" aria-label="Search and commands"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><kbd>Ctrl K</kbd></button>
@@ -881,7 +893,7 @@ body.no-tilt [data-tilt]{transform:none!important}
   <div class="hc">
     <span class="eyebrow hi" style="--k:0">Flagship Technical Fest</span>
     <h1 class="title" id="title" aria-label="Torque"></h1>
-    <span class="edition hi" style="--k:3" data-t="2K27">2K27</span>
+    <span class="edition hi" style="--k:3" data-t="26-27">26-27</span>
     <p class="tag1 hi" style="--k:4">Where <em>force</em> becomes <em>motion</em></p>
     <p class="uni hi" style="--k:4"><b>Department of Mechanical Engineering</b>University College of Engineering Kakinada, JNTU Kakinada</p>
     <p class="when hi" style="--k:5" id="when"></p>
@@ -965,7 +977,7 @@ body.no-tilt [data-tilt]{transform:none!important}
     <h2 class="h rv" style="--d:1">Work<em>shops</em></h2>
     <p class="lead rv sec-lead" style="--d:2">Three immersive tracks built to take you from curiosity to capability. Drive the future with Electric Vehicles, step into Virtual Reality and get ahead of the next industrial wave with Robotics.</p>
     <div class="bays" id="wk"></div>
-    <div class="notice rv"><strong>[ TORQUE 2K27 IS COMING ]</strong><span>Workshops, competitions and innovation under one roof. Stay tuned for registrations and updates.</span></div>
+    <div class="notice rv"><strong>[ TORQUE 26-27 IS COMING ]</strong><span>Workshops, competitions and innovation under one roof. Stay tuned for registrations and updates.</span></div>
   </div>
 </section>
 
@@ -1169,7 +1181,7 @@ body.no-tilt [data-tilt]{transform:none!important}
           <div class="lany"></div>
           <div class="pass" id="pass">
             <p class="g1">I’m going to</p>
-            <div><h3>Torque<br>2K27</h3><p class="gn" id="pname">Your name</p></div>
+            <div><h3>Torque<br>26-27</h3><p class="gn" id="pname">Your name</p></div>
             <div><p class="g3" id="pdate"></p><p class="g3">UCEK Kakinada</p></div>
             <div class="bars"></div>
           </div>
@@ -1223,7 +1235,7 @@ body.no-tilt [data-tilt]{transform:none!important}
     <a href="https://leelakrishnavemulapalli.vercel.app/" target="_blank" rel="noopener">Leela Krishna Vemulapalli</a>
     <a href="https://linkedin.com/in/k-anibabu" target="_blank" rel="noopener">Ani Kakarlapudi</a>
   </div>
-  <p>Made with ❤️ for TORQUE 2K27</p>
+  <p>Made with ❤️ for TORQUE 26-27</p>
 </footer>
 
 <button id="top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="square"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
@@ -1262,6 +1274,7 @@ body.no-tilt [data-tilt]{transform:none!important}
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script src="subpages/phones.js"></script>
+<script src="subpages/touch.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const TQS={tilt:1,trail:1,spot:1,lite:0,q:"high",lines:1,hud:1,fx:1,cursor:1,units:"kmh"};
@@ -1287,8 +1300,8 @@ const Settings=(function(){
   };
 })();
 const CONFIG={
-  start:"2027-01-10T09:00:00+05:30",
-  end:"2027-01-11T18:00:00+05:30",
+  start:"2026-12-21T09:00:00+05:30",
+  end:"2026-12-22T18:00:00+05:30",
   regUrl:"subpages/register-upi.html",   // UPI is the default. For Razorpay use "subpages/register-razorpay.html"
   email:"torque2k27@gmail.com",
   poster:"https://drive.google.com/file/d/1Oq5hlPsLnExh-L0_W1Fa91KBd_wzN4R0/view?usp=drive_link",
@@ -1305,18 +1318,18 @@ const WORKSHOPS=[
   {t:"Robotics",d:"Join the next Industrial Revolution!",u:BASE+"workshop_hbaja.html",i:"https://www.tdk.com/en/tech-mag/sites/default/files/2024-08/robotics-in-manufactoring.jpg"}
 ];
 const EVENTS=[
-  {t:"Chess Monarch",c:"Mind",d:"Where Strategy Meets Supremacy",i:"images/chess.jpeg",u:BASE+"event_chessmonarch.html"},
-  {t:"Project Expo",c:"Technical",d:"Where Innovation Meets Inspiration",i:"images/expo.png",u:BASE+"event_projectexpo.html"},
-  {t:"Bridge Building",c:"Technical",d:"Where Engineering Meets Innovation",i:"images/bridge.jpg",u:BASE+"event_bridge.html"},
-  {t:"Lathe Master",c:"Technical",d:"Where Precision Meets Craftsmanship",i:"images/lathe.jpg",u:BASE+"event_lathemaster.html"},
-  {t:"Robo Race",c:"Technical",d:"A High-Speed Innovation Challenge",i:"images/race.jpg",u:BASE+"event_roborace.html"},
-  {t:"Design Freak",c:"Design",d:"Where Ideas Take Shape in CAD",i:"images/design.jpg",u:BASE+"event_designfreak.html"},
+  {t:"Chess Monarch",c:"Mind",d:"Where Strategy Meets Supremacy",i:"images/ch.jpeg",u:BASE+"event_chessmonarch.html"},
+  {t:"Project Expo",c:"Technical",d:"Where Innovation Meets Inspiration",i:"images/pr.jpeg",u:BASE+"event_projectexpo.html"},
+  {t:"Bridge Building",c:"Technical",d:"Where Engineering Meets Innovation",i:"images/br.jpeg",u:BASE+"event_bridge.html"},
+  {t:"Lathe Master",c:"Technical",d:"Where Precision Meets Craftsmanship",i:"images/la.jpg",u:BASE+"event_lathemaster.html"},
+  {t:"Robo Race",c:"Technical",d:"A High-Speed Innovation Challenge",i:"images/roo.jpeg",u:BASE+"event_roborace.html"},
+  {t:"Design Freak",c:"Design",d:"Where Ideas Take Shape in CAD",i:"images/des.jpg",u:BASE+"event_designfreak.html"},
   {t:"Slide Plane",c:"Technical",d:"Where Ideas Take Flight",i:"images/slide.jpg",u:BASE+"event_slideplain.html"},
-  {t:"Casting Crowns",c:"Technical",d:"Where precision and speed meet the art of sand casting",i:"images/casting.jpg",u:BASE+"event_castingcrowns.html"},
-  {t:"Engine Montage",c:"Technical",d:"Where Mechanics Meets Precision",i:"images/engine.jpg",u:BASE+"event_enginemontage.html"},
-  {t:"Mechanical Quiz",c:"Mind",d:"Where knowledge makes mechanical maestros",i:"images/quiz.jpg",u:BASE+"event_quiz.html"},
-  {t:"Drone Drive",c:"Technical",d:"Where Piloting Skill Meets Precision",i:"images/drone.jpg",u:BASE+"event_dronedrive.html"},
-  {t:"Rhythmic Fusion",c:"Cultural",d:"A Spectacle of Dance and Energy!",i:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlyyXe75bRDY0IT1bq_3tsVKwmx5hKml2xHw&s",u:BASE+"cult.html"}
+  {t:"Casting Crowns",c:"Technical",d:"Where precision and speed meet the art of sand casting",i:"images/ca.jpeg",u:BASE+"event_castingcrowns.html"},
+  {t:"Engine Montage",c:"Technical",d:"Where Mechanics Meets Precision",i:"images/en.webp",u:BASE+"event_enginemontage.html"},
+  {t:"Mechanical Quiz",c:"Mind",d:"Where knowledge makes mechanical maestros",i:"images/qu.jpg",u:BASE+"event_quiz.html"},
+  {t:"Drone Drive",c:"Technical",d:"Where Piloting Skill Meets Precision",i:"images/dr.jpeg",u:BASE+"event_dronedrive.html"},
+  {t:"Rhythmic Fusion",c:"Cultural",d:"A Spectacle of Dance and Energy!",i:"images/cu.jpeg",f:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlyyXe75bRDY0IT1bq_3tsVKwmx5hKml2xHw&s",u:BASE+"cult.html"}
 ];
 const ATTR={
   "Chess Monarch":{love:"mind",mode:"solo",vibe:"strategic"},
@@ -1374,6 +1387,14 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 const pad2=n=>String(n).padStart(2,"0");
 const arrow='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const bindFallback=(img,fn)=>img.addEventListener("error",fn,{once:true});
+/* try the exact file, then the same name with other extensions, then an optional web fallback */
+const imgChain=(img,src,alt,fail)=>{
+  const list=[src];const m=/^(.*)\.(jpe?g|png|webp|JPE?G|PNG|WEBP)$/.exec(src);
+  if(m)["jpeg","jpg","png","webp","JPG","JPEG"].forEach(x=>{const u=m[1]+"."+x;if(!list.includes(u))list.push(u)});
+  if(alt)list.push(alt);
+  let k=0;const nx=()=>{if(k>=list.length){fail?fail():img.remove();return}img.src=list[k++]};
+  img.onerror=nx;nx();
+};
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const vib=n=>{try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}};
 const mod=(n,f)=>{try{f()}catch(e){console.error("[torque] "+n,e)}};
@@ -1499,8 +1520,8 @@ const Plan=(function(){
 function icsDownload(){
   const f=d=>new Date(d).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
   const mine=Plan.list().map(i=>EVENTS[i].t).join("\\, ");
-  const body=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Torque 2K27//EN","BEGIN:VEVENT","UID:torque2k27@ucek-jntuk","DTSTAMP:"+f(Date.now()),"DTSTART:"+f(CONFIG.start),"DTEND:"+f(CONFIG.end),"SUMMARY:Torque 2K27","LOCATION:Department of Mechanical Engineering\\, UCEK Kakinada\\, Andhra Pradesh","DESCRIPTION:Torque 2K27 technical fest."+(mine?" My plan: "+mine:""),"END:VEVENT","END:VCALENDAR"].join("\r\n");
-  const a=el("a",{href:URL.createObjectURL(new Blob([body],{type:"text/calendar"})),download:"torque-2k27.ics"});
+  const body=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Torque 26-27//EN","BEGIN:VEVENT","UID:torque2k27@ucek-jntuk","DTSTAMP:"+f(Date.now()),"DTSTART:"+f(CONFIG.start),"DTEND:"+f(CONFIG.end),"SUMMARY:Torque 26-27","LOCATION:Department of Mechanical Engineering\\, UCEK Kakinada\\, Andhra Pradesh","DESCRIPTION:Torque 26-27 technical fest."+(mine?" My plan: "+mine:""),"END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a=el("a",{href:URL.createObjectURL(new Blob([body],{type:"text/calendar"})),download:"torque-26-27.ics"});
   document.body.appendChild(a);a.click();a.remove();toast("Calendar file downloaded");
 }
 function shareText(t,x,u){
@@ -1580,7 +1601,7 @@ mod("countdown",()=>{
   function run(){
     const n=Date.now();
     if(n>=e){cd.style.display="none";msg.style.display="block";msg.textContent="Thank you for an unforgettable Torque!";pill.textContent="Thank you";return}
-    if(n>=s){cd.style.display="none";msg.style.display="block";msg.textContent="Torque 2K27 is live now!";pill.textContent="LIVE NOW";return}
+    if(n>=s){cd.style.display="none";msg.style.display="block";msg.textContent="Torque 26-27 is live now!";pill.textContent="LIVE NOW";return}
     let r=Math.floor((s-n)/1000);
     const d=Math.floor(r/86400),h=Math.floor((r%86400)/3600),m=Math.floor((r%3600)/60);
     set("d",d);set("h",h);set("m",m);set("s",r%60);
@@ -1637,7 +1658,7 @@ mod("gate",()=>{
   }
   const MSG=["Torquing bolts","Warming tyres","Calibrating dyno","Aligning gears","Priming injectors"];
   const fmt=ms=>{const s=ms/1000;return Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0")+"."+String(Math.floor(ms%1000/10)).padStart(2,"0")};
-  let state="load",prog=0,hold=false,done=false,disp=0,vis=0,lastLed=-1,lastTxt="",lastMi=-1,fontsOk=false,loaded=document.readyState==="complete";
+  let state="load",prog=0,hold=false,auto=false,pdown=0,rdyAt=0,nudged=0,done=false,disp=0,vis=0,lastLed=-1,lastTxt="",lastMi=-1,fontsOk=false,loaded=document.readyState==="complete";
   const t0=performance.now();let prev=t0;
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{fontsOk=true},()=>{fontsOk=true});else fontsOk=true;
   addEventListener("load",()=>{loaded=true});
@@ -1675,11 +1696,12 @@ mod("gate",()=>{
       setTxt(`Loading<br>${Math.min(99,Math.round(disp*100))}%`);
       v=.04+disp*.22+Math.sin(et/90)*.008;rv=disp;
       if(disp>=.995&&et>=1900){
-        state="rdy";btn.disabled=false;btn.classList.add("rdy");setTxt("Hold to<br>ignite");
-        st.textContent="Engine ready · hold to ignite";bf.style.width="100%";car.style.left="100%";Snd.play("good");
+        state="rdy";rdyAt=now;btn.disabled=false;btn.classList.add("rdy");setTxt("TAP OR<br>HOLD");$("#gcta").classList.add("on");
+        st.textContent="Engine ready - tap the glowing circle";bf.style.width="100%";car.style.left="100%";Snd.play("good");
       }
     }else if(state==="rdy"){
-      prog+=hold?dt/1.5:-dt/.8;prog=Math.max(0,Math.min(1,prog));
+      prog+=(hold||auto)?dt/(auto&&!hold?1.1:1.5):-dt/.8;prog=Math.max(0,Math.min(1,prog));
+      if(!hold&&!auto&&now-rdyAt>4500&&now-nudged>3500){nudged=now;btn.classList.remove("nudge");void btn.offsetWidth;btn.classList.add("nudge");$("#gcta").innerHTML="<b>&#9654;</b> Tap the glowing circle!"}
       v=.1+prog*.9+Math.sin(et/38)*.006*prog;rv=prog;
       Snd.engine(prog>.01?prog:0);
       btn.classList.toggle("hold",hold);
@@ -1698,12 +1720,13 @@ mod("gate",()=>{
     draw(dt,Math.min(1,vv));
   }
   requestAnimationFrame(loop);
-  const press=()=>{if(state==="rdy")hold=true};
+  const press=()=>{if(state==="rdy"){hold=true;pdown=performance.now()}};
   btn.addEventListener("pointerdown",e=>{press();e.preventDefault()});
-  addEventListener("pointerup",()=>{hold=false});addEventListener("pointercancel",()=>{hold=false});
+  addEventListener("pointerup",()=>{if(hold&&performance.now()-pdown<320)auto=true;hold=false});addEventListener("pointercancel",()=>{hold=false});
   btn.addEventListener("keydown",e=>{if((e.key===" "||e.key==="Enter")&&!e.repeat){press();e.preventDefault()}});
-  btn.addEventListener("keyup",e=>{if(e.key===" "||e.key==="Enter")hold=false});
+  btn.addEventListener("keyup",e=>{if(e.key===" "||e.key==="Enter"){if(hold&&performance.now()-pdown<320)auto=true;hold=false}});
   btn.addEventListener("contextmenu",e=>e.preventDefault());
+  btn.addEventListener("click",e=>{if(state==="rdy"&&e.detail===0)auto=true});
   $("#gsnd").onclick=()=>Snd.toggle();
   $("#gskip").onclick=()=>{
     if(done)return;
@@ -1879,8 +1902,8 @@ mod("eventRing",()=>{
   let cat="All",view="ring",rot=0,vel=0,target=null,drag=false,moved=0,lx=0,idleT=performance.now(),vis=[],R=500,step=30,frontI=0,run=true,lastIdx=-1,my=0,tmy=0;
   const cards=EVENTS.map((ev,i)=>{
     const c=el("article",{class:"ec","data-i":i,"data-c":ev.c,"data-cur":"OPEN","data-s":(ev.t+" "+ev.d+" "+ev.c).toLowerCase()});
-    c.innerHTML=`<div class="im"><span class="fb">${initials(ev.t)}</span><img src="${esc(ev.i)}" alt="${esc(ev.t)}" loading="lazy" draggable="false"><span class="tg">${esc(ev.c)}</span><span class="nn">P${pad2(i+1)}</span></div><span class="chk"></span><div class="bd"><h3>${esc(ev.t)}</h3><p>${esc(ev.d)}</p></div><button class="open" data-i="${i}" aria-label="Open ${esc(ev.t)}"></button><button class="fav" data-i="${i}" aria-pressed="false" aria-label="Save ${esc(ev.t)} to my plan">★</button>`;
-    bindFallback($("img",c),function(){this.remove()});
+    c.innerHTML=`<div class="im"><span class="fb">${initials(ev.t)}</span><img alt="${esc(ev.t)}" draggable="false"><span class="tg">${esc(ev.c)}</span><span class="nn">P${pad2(i+1)}</span></div><span class="chk"></span><div class="bd"><h3>${esc(ev.t)}</h3><p>${esc(ev.d)}</p></div><button class="open" data-i="${i}" aria-label="Open ${esc(ev.t)}"></button><button class="fav" data-i="${i}" aria-pressed="false" aria-label="Save ${esc(ev.t)} to my plan">★</button>`;
+    imgChain($("img",c),ev.i,ev.f);
     cyl.appendChild(c);return c;
   });
   cats.forEach(c=>{
@@ -1976,15 +1999,15 @@ mod("eventRing",()=>{
     cur=i;$("#mdf").dataset.i=i;Plan.sync();
     const ev=EVENTS[i];
     $("#mdt").textContent=ev.t;$("#mdp").textContent=ev.d;$("#mdg").textContent=ev.c;$("#mdl").href=ev.u;
-    const im=$("#mdi");im.parentNode.style.display="";im.src=ev.i;im.alt=ev.t;
-    bindFallback(im,()=>{im.parentNode.style.display="none"});
+    const im=$("#mdi");im.parentNode.style.display="";im.alt=ev.t;
+    imgChain(im,ev.i,ev.f,()=>{im.parentNode.style.display="none"});
     if(!md.open)md.showModal();document.body.classList.add("lock");
     Snd.play("whoosh");
     history.replaceState(null,"","#event-"+encodeURIComponent(ev.t.toLowerCase().replace(/\s+/g,"-")));
   }
   window.openEvent=openEv;
   $("#mdf").onclick=()=>{const on=Plan.toggle(cur);toast(on?"Saved to your plan":"Removed from your plan")};
-  $("#mds").onclick=()=>shareText(EVENTS[cur].t+" | Torque 2K27",EVENTS[cur].t+" at Torque 2K27: "+EVENTS[cur].d,location.href);
+  $("#mds").onclick=()=>shareText(EVENTS[cur].t+" | Torque 26-27",EVENTS[cur].t+" at Torque 26-27: "+EVENTS[cur].d,location.href);
   md.addEventListener("close",()=>{document.body.classList.remove("lock");if(location.hash.startsWith("#event-"))history.replaceState(null,"","#events")});
   layout();info();requestAnimationFrame(frame);
   if(location.hash.startsWith("#event-")){
@@ -2435,7 +2458,7 @@ mod("pass",()=>{
     x.fillStyle="#101010";x.textBaseline="alphabetic";
     const F="Anton,Impact,sans-serif",B="'Space Mono',monospace";
     x.font=`700 40px ${B}`;x.fillText("I'M GOING TO",90,150);
-    x.font=`400 270px ${F}`;x.fillText("TORQUE",80,430);x.fillText("2K27",80,680);
+    x.font=`400 270px ${F}`;x.fillText("TORQUE",80,430);x.fillText("26-27",80,680);
     const nm=(name.trim()||"").toUpperCase().slice(0,24);
     if(nm){let fs=120;x.font=`400 ${fs}px ${F}`;while(x.measureText(nm).width>W-180&&fs>50){fs-=4;x.font=`400 ${fs}px ${F}`}x.fillText(nm,90,830)}
     x.font=`700 40px ${B}`;x.fillText($("#pdate").textContent+" · UCEK Kakinada",90,930);
@@ -2449,8 +2472,8 @@ mod("pass",()=>{
     for(let i=0;i<60;i++){x.fillRect(90+i*15,1280,i%3===0?5:3,50)}
     return cv;
   }
-  $("#pdl").onclick=()=>draw().then(cv=>cv.toBlob(bl=>{if(!bl){toast("Could not make the image");return}const u=URL.createObjectURL(bl),a=el("a",{href:u,download:"torque-2k27-pass.png"});document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);toast("Pass downloaded");Fx.burst(innerWidth/2,innerHeight/2,60);Ach.unlock("pass")},"image/png")).catch(()=>toast("Could not make the image"));
-  $("#psh").onclick=()=>shareText("I'm going to Torque 2K27",(name.trim()?name.trim()+" is":"I'm")+" going to Torque 2K27, "+$("#pdate").textContent+" at UCEK Kakinada.");
+  $("#pdl").onclick=()=>draw().then(cv=>cv.toBlob(bl=>{if(!bl){toast("Could not make the image");return}const u=URL.createObjectURL(bl),a=el("a",{href:u,download:"torque-26-27-pass.png"});document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);toast("Pass downloaded");Fx.burst(innerWidth/2,innerHeight/2,60);Ach.unlock("pass")},"image/png")).catch(()=>toast("Could not make the image"));
+  $("#psh").onclick=()=>shareText("I'm going to Torque 26-27",(name.trim()?name.trim()+" is":"I'm")+" going to Torque 26-27, "+$("#pdate").textContent+" at UCEK Kakinada.");
 });
 
 mod("register",()=>{
@@ -2462,7 +2485,7 @@ mod("register",()=>{
 mod("faq",()=>{
   const F=[
     ["What is Torque?","Torque is the flagship technical fest of the Department of Mechanical Engineering at University College of Engineering Kakinada, JNTUK, with workshops, competitions and innovation under one roof."],
-    ["When and where is Torque 2K27?",`${window.DATE_TEXT||"10–11 January 2027"} at the Department of Mechanical Engineering, University College of Engineering Kakinada, Pithapuram Road, Kakinada, Andhra Pradesh 533003.`],
+    ["When and where is Torque 26-27?",`${window.DATE_TEXT||"21–22 December 2026"} at the Department of Mechanical Engineering, University College of Engineering Kakinada, Pithapuram Road, Kakinada, Andhra Pradesh 533003.`],
     ["How do I register?","Press Register, fill in your details, pick your events and workshops, and pay online. You get a registration ID to show at the desk. Updates are shared on our Instagram, X and YouTube pages."],
     ["Where do I register for chess?",`Chess details are on its own page. Please see the <a href="subpages/event_chessmonarch.html">Chess Monarch page</a>.`],
     ["How do I choose an event?","Try the Find my event quiz, or open any event card to read its full details and rules on its own page. You can also save events to your plan on this device."],
@@ -2612,7 +2635,7 @@ mod("egg",()=>{
 mod("planUI",()=>{
   $("#planbtn").onclick=()=>$("#plan").showModal();
   $("#plc").onclick=icsDownload;
-  $("#pls").onclick=()=>{const l=Plan.list().map(i=>EVENTS[i].t);shareText("My Torque 2K27 plan",l.length?"My Torque 2K27 plan: "+l.join(", "):"Check out Torque 2K27!")};
+  $("#pls").onclick=()=>{const l=Plan.list().map(i=>EVENTS[i].t);shareText("My Torque 26-27 plan",l.length?"My Torque 26-27 plan: "+l.join(", "):"Check out Torque 26-27!")};
   Plan.sync();
 });
 
@@ -2631,10 +2654,10 @@ mod("palette",()=>{
     {t:"Change accent colour",k:"Action",run:()=>window.nextAccent()},
     {t:"Toggle sound",k:"Action",run:()=>Snd.toggle()},
     {t:"Open settings",k:"Action",run:()=>window.openSettings()},
-    {t:"Add Torque 2K27 to calendar",k:"Action",run:icsDownload},
+    {t:"Add Torque 26-27 to calendar",k:"Action",run:icsDownload},
     {t:"Open my plan",k:"Action",run:()=>$("#plan").showModal()},
     {t:"Download poster",k:"Action",run:()=>window.open(CONFIG.poster,"_blank","noopener")},
-    {t:"Share this website",k:"Action",run:()=>shareText("Torque 2K27","Torque 2K27 | UCEK JNTUK technical fest")}
+    {t:"Share this website",k:"Action",run:()=>shareText("Torque 26-27","Torque 26-27 | UCEK JNTUK technical fest")}
   ];
   function render(){
     const k=i.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -2664,7 +2687,7 @@ mod("palette",()=>{
 
 mod("schema",()=>{
   const s=el("script",{type:"application/ld+json"});
-  s.textContent=JSON.stringify({"@context":"https://schema.org","@type":"Event",name:"Torque 2K27",description:"Flagship technical fest of the Department of Mechanical Engineering, UCEK, JNTUK.",startDate:CONFIG.start,endDate:CONFIG.end,eventAttendanceMode:"https://schema.org/OfflineEventAttendanceMode",eventStatus:"https://schema.org/EventScheduled",location:{"@type":"Place",name:"Department of Mechanical Engineering, University College of Engineering Kakinada",address:{"@type":"PostalAddress",streetAddress:"Pithapuram Road",addressLocality:"Kakinada",addressRegion:"Andhra Pradesh",postalCode:"533003",addressCountry:"IN"}},organizer:{"@type":"Organization",name:"Department of Mechanical Engineering, UCEK, JNTUK"}});
+  s.textContent=JSON.stringify({"@context":"https://schema.org","@type":"Event",name:"Torque 26-27",description:"Flagship technical fest of the Department of Mechanical Engineering, UCEK, JNTUK.",startDate:CONFIG.start,endDate:CONFIG.end,eventAttendanceMode:"https://schema.org/OfflineEventAttendanceMode",eventStatus:"https://schema.org/EventScheduled",location:{"@type":"Place",name:"Department of Mechanical Engineering, University College of Engineering Kakinada",address:{"@type":"PostalAddress",streetAddress:"Pithapuram Road",addressLocality:"Kakinada",addressRegion:"Andhra Pradesh",postalCode:"533003",addressCountry:"IN"}},organizer:{"@type":"Organization",name:"Department of Mechanical Engineering, UCEK, JNTUK"}});
   document.head.appendChild(s);
 });
 
